@@ -39,6 +39,7 @@ module OmniAuth
             'email' => @raw_info['email'],
             'nickname' => @raw_info['name'],
             'location' => nil,
+            'sex' => @raw_info['sex'],
             'description' => @raw_info['description'],
             'image' => 'http://underskog.no'+@raw_info['image_url'],
             'phone' => nil,
