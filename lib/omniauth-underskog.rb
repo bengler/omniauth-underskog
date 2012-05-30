@@ -3,6 +3,6 @@ require "omniauth/strategies/underskog"
 
 module OmniAuth
   module Strategies
-    autoload :Origo,  'omniauth/strategies/underskog'
+    autoload :Underskog,  'omniauth/strategies/underskog'
   end
 end
