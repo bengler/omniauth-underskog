@@ -17,7 +17,7 @@ describe OmniAuth::Strategies::Underskog do
     end
 
     it 'has correct token URL' do
-      subject.client.token_url.should == 'https://secure.origo.no/oauth/token'
+      subject.client.token_url.should == 'https://localhost/oauth/token'
     end
   end
 
