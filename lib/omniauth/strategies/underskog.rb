@@ -9,8 +9,6 @@ module OmniAuth
 
       option :name, "underskog"
 
-      # TODO: make this support HTTPS when bug in Origo /-/site/check_mastersession
-      # is resolved. See README.md
       option :client_options, {
         :site => 'https://localhost',
         :token_url => '/oauth/token',

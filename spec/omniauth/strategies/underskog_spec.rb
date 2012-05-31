@@ -9,21 +9,21 @@ describe OmniAuth::Strategies::Underskog do
 
   describe '#client' do
     it 'has correct site URL' do
-      subject.client.site.should == 'https://secure.origo.no'
+      subject.client.site.should == 'https://localhost'
     end
 
     it 'has correct authorize URL' do
-      subject.client.authorize_url.should == 'https://secure.origo.no/-/oauth/authorize'
+      subject.client.authorize_url.should == 'https://localhost/oauth/authorize'
     end
 
     it 'has correct token URL' do
-      subject.client.token_url.should == 'https://secure.origo.no/-/oauth/token'
-    end 
+      subject.client.token_url.should == 'https://secure.origo.no/oauth/token'
+    end
   end
 
   describe '#callback_path' do
     it "has the correct callback path" do
-      subject.callback_path.should eq('/auth/origo/callback')
+      subject.callback_path.should eq('/auth/underskog/callback')
     end
   end
 
