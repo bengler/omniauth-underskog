@@ -26,7 +26,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get(client_options[:site] + user_info_path).parsed
+        @raw_info ||= access_token.get(options[:client_options][:site] + options[:user_info_path]).parsed
         {
           'provider' => 'underskog',
           'uid' => @raw_info['id'],

@@ -19,6 +19,12 @@ describe OmniAuth::Strategies::Underskog do
     it 'has correct token URL' do
       subject.client.token_url.should == 'https://underskog.no/oauth/token'
     end
+
+    it 'has correct userinfo URL' do
+      subject.options.user_info_path.should == '/api/v1/users/current'
+    end
+
+
   end
 
   describe '#callback_path' do
