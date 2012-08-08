@@ -5,8 +5,6 @@ module OmniAuth
   module Strategies
     class Underskog < OmniAuth::Strategies::OAuth2
 
-      USERINFO_PATH = '/api/v1/users/current'
-
       option :name, "underskog"
 
       option :client_options, {
@@ -14,6 +12,8 @@ module OmniAuth
         :token_url => '/oauth/token',
         :authorize_url => '/oauth/authorize'
       }
+
+      option :user_info_path, '/api/v1/users/current'
 
       uid { raw_info['uid'].to_s } # to_s to keep all values as strings
 
@@ -26,7 +26,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get(client_options[:site] + USERINFO_PATH).parsed
+        @raw_info ||= access_token.get(site + user_info_path).parsed
         {
           'provider' => 'underskog',
           'uid' => @raw_info['id'],
