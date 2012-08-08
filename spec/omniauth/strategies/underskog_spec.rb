@@ -20,10 +20,9 @@ describe OmniAuth::Strategies::Underskog do
       subject.client.token_url.should == 'https://underskog.no/oauth/token'
     end
 
-    it 'has correct userinfo URL' do
+    it 'has correct userinfo path' do
       subject.options.user_info_path.should == '/api/v1/users/current'
     end
-
 
   end
 
