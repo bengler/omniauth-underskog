@@ -9,15 +9,15 @@ describe OmniAuth::Strategies::Underskog do
 
   describe '#client' do
     it 'has correct site URL' do
-      subject.client.site.should == 'https://localhost'
+      subject.client.site.should == 'https://underskog.no'
     end
 
     it 'has correct authorize URL' do
-      subject.client.authorize_url.should == 'https://localhost/oauth/authorize'
+      subject.client.authorize_url.should == 'https://underskog.no/oauth/authorize'
     end
 
     it 'has correct token URL' do
-      subject.client.token_url.should == 'https://localhost/oauth/token'
+      subject.client.token_url.should == 'https://underskog.no/oauth/token'
     end
   end
 

@@ -5,12 +5,12 @@ module OmniAuth
   module Strategies
     class Underskog < OmniAuth::Strategies::OAuth2
 
-      USERINFO_ENDPOINT = 'https://localhost/api/v1/users/current'
+      USERINFO_ENDPOINT = 'https://underskog.no/api/v1/users/current'
 
       option :name, "underskog"
 
       option :client_options, {
-        :site => 'https://localhost',
+        :site => 'https://underskog.no',
         :token_url => '/oauth/token',
         :authorize_url => '/oauth/authorize'
       }
