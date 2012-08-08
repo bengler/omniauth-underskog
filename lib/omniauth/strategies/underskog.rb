@@ -27,7 +27,7 @@ module OmniAuth
 
       def raw_info
         url = options.client_options.site + options.user_info_path
-        @raw_info ||= access_token.get(url).parsed
+        @raw_info ||= access_token.get(url).parsed['data']
         {
           'provider' => 'underskog',
           'uid' => @raw_info['id'],
@@ -40,9 +40,9 @@ module OmniAuth
             'location' => nil,
             'sex' => @raw_info['sex'],
             'description' => @raw_info['description'],
-            'image' => 'http://underskog.no'+@raw_info['image_url'],
+            'image' => @raw_info['image_url'],
             'phone' => nil,
-            'urls' => {'Underskog' => "http://underskog.no/medlem/vis/#{@raw_info['name']}"}.
+            'urls' => {'Underskog' => @raw_info['image_url']}.
               merge(@raw_info['home_url'] ? {"Homepage" => @raw_info['home_url']} : {})
           },
           :extra => {} # Empty for now, use this if more info is going to be added.
