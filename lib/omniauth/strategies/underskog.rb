@@ -5,7 +5,7 @@ module OmniAuth
   module Strategies
     class Underskog < OmniAuth::Strategies::OAuth2
 
-      USERINFO_ENDPOINT = 'https://underskog.no/api/v1/users/current'
+      USERINFO_PATH = '/api/v1/users/current'
 
       option :name, "underskog"
 
@@ -26,7 +26,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get(USERINFO_ENDPOINT).parsed
+        @raw_info ||= access_token.get(client_options[:site] + USERINFO_PATH).parsed
         {
           'provider' => 'underskog',
           'uid' => @raw_info['id'],
